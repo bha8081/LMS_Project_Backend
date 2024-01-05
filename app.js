@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from'cookie-parser';
 import morgan from 'morgan';
-import userRoutes from './routes/userRoutes.js';
+import userRoutes from './routes/user.routes.js';
 import errorMiddleware from './middlewares/error.middleware.js';
 
 //  const { config } = require('dotenv');

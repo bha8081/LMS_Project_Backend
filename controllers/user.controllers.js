@@ -241,7 +241,7 @@ const forgotPassword = async (req, res, next) => {
 */
 
 
-// resetPassword
+// Reset Password
 const resetPassword = async (req, res) => {
     const { resetToken } = req.params;
 

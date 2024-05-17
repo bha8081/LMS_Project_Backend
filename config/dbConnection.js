@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 mongoose.set('strictQuery', false);
 
+// Database connection
 const connectionToDB = async () => {
     try{
         const { connection } = await mongoose.connect(

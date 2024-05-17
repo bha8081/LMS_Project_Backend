@@ -3,7 +3,7 @@ import AppError from "../utils/error.util.js";
 import cloudinary from "cloudinary";
 import fs from "fs/promises";
 
-// All Course
+// All Courses
 const getAllCourses = async function(req, res, next)
 {
     // We can also use try-catch.

@@ -13,18 +13,23 @@ const cookieOptions = {
 
 // User register
 const register = async (req, res, next) => {
+  // Destructuring the necessary data from req object
   const { fullName, email, password } = req.body;
 
+  // Check if the data is there or not, if not throw error message
   if (!fullName || !email || !password) {
     return next(new AppError("All fields are required", 400));
   }
 
+  // Check if the user exists with the provided email
   const userExists = await User.findOne({ email });
 
+  // If user exists send the response
   if (userExists) {
     return next(new AppError("Email is already exists", 400));
   }
 
+  // Create new user with the given necessary data and save to DB
   const user = await User.create({
     fullName,
     email,
@@ -167,7 +172,7 @@ const forgotPassword = async (req, res, next) => {
 
     await user.save();
 
-    const resetPasswordURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
+    const resetPasswordURL = `${process.env.FRONTEND_UR}/reset-password/${resetToken}`;
 
     const subject = 'Reset Password';
     const message = `You can reset your password by clicking <a herf=${resetPasswordURL} target="_blank">Reset your password</a>.\nIf the above link does not work for some reason then copy paste this link in new tab ${resetPasswordURL}.\n If you have not requested this, kindly ignore.`;
